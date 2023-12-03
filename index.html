@@ -9,6 +9,28 @@
 <div id="header">
 <body bgcolor="Yellow">
 <h3 style="right corner"> version 0.7 </h3>
+    <p style = "right corner" id = "nii">Total Visitors:</p>
+    <div id="counter">0</div>
+
+    <script>
+        let visitorCount = localStorage.getItem('visitorCount') || 0;
+
+        // Function to increment the counter and update the display
+        function incrementCounter() {
+            visitorCount++;
+            updateCounter();
+        }
+
+        // Function to update the counter display
+        function updateCounter() {
+            document.getElementById('counter').innerText = visitorCount;
+            localStorage.setItem('visitorCount', visitorCount);
+        }
+
+        // Increment the counter when the page loads
+        incrementCounter();
+    </script>
+
 <h1 align="center"> Top 5 capybaras </h1>
 <h2 align="center"> top 5 Capybaras </h2>
 </div>
@@ -31,6 +53,7 @@
    <a href="ubdatef.html">
             <button onclick="doSomething()" style="background-color:#00FF00;color:#333333;border-radius:5px">Update</button>
         </a>
+		
 
 <ol> 
 <li> spin capybara </li>
@@ -74,5 +97,21 @@
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
 </script>
+<style>
+#nii{
+	color: darkblue;
+	font-size:27px;
+}
+
+#counter{
+	background: lightskyblue;
+	height: 29px;
+	width: 50px;
+	border: 2px solid;
+	text-align: center;
+	position: absolute;
+	font-size:30px;
+}
+</style>
 </body>
 </html>
